@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>Calculator Application
+            <button id="calcButton" class="calcbtn">Calculator</button>
+        </h1>
+    </div>
+    <div>
+        <h2>Login</h2>
+        <form id="loginForm" class="login-form">
+            <label for="email">Email</label><br>
+            <input type="text" id="email" autocomplete="email" required><br>
+            <label for="username">UserName</label><br> <!-- Fixed "Username" to "username" -->
+            <input type="text" id="username" autocomplete="username" required><br> <!-- Changed "UserName" to "text" -->
+            <label for="password">Password </label><br>
+            <input type="password" id="password" autocomplete="new-password" required><br>
+            <label for="confirmPassword">Confirm Password </label><br> <!-- Fixed "Confirmpassword" to "confirmPassword" -->
+            <input type="password" id="confirmPassword" autocomplete="new-password" required><br> <!-- Changed "Confirmpassword" to "confirmPassword" -->
+            <button class="Loginbtn" role="button">Login</button>
+        </form>
+        <div id="errorMessages"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="loginScript.js"></script>
+    <script>
+        $(document).ready(() => {
+            // Navigate to calc.html when Calculator button is clicked
+            $('#calcButton').on('click', () => {
+                window.location.href = 'calc.html';
+            });
+        }); 
+    </script>
+</body>
+</html>
+
+
+

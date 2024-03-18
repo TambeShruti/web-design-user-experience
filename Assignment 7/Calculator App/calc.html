@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h2 id="welcomeMessage">Welcome !</h2> <!-- Display the logged-in username here -->
+        <form class="login-form">
+            <label for="num1">Number 1</label>
+            <input type="text" id="num1" required><br>
+            <label for="num2">Number 2</label>
+            <input type="text" id="num2" required><br>
+            <button type="button" class="Loginbtn operationButton" data-operation="add">Add</button>
+            <button type="button" class="Loginbtn operationButton" data-operation="subtract">Subtract</button>
+            <button type="button" class="Loginbtn operationButton" data-operation="multiply">Multiply</button>
+            <button type="button" class="Loginbtn operationButton" data-operation="divide">Divide</button><br>
+            <input class="result"type="text" name="value" value="" readonly> <!-- Result field -->
+        </form>
+        <div id="calculatorErrorMessages"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="calcScript.js"></script>
+    <script>
+        const isLoggedIn = sessionStorage.getItem('loggedIn');
+        if (isLoggedIn) {
+            const loggedInUserName = sessionStorage.getItem('username');
+            $('#welcomeMessage').text(`Welcome ${loggedInUserName}!`);
+        }
+    </script>
+</body>
+</html>
