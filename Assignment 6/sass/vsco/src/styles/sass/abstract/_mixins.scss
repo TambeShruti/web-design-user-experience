@@ -1,0 +1,15 @@
+@mixin button-styles {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  display: inline-block;
+  width: 100px;
+  border-radius: 50px;
+  padding: 10px 20px;
+  background-color: $button-color;
+  border: 1px solid;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}

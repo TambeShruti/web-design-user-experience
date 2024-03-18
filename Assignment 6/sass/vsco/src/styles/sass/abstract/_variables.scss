@@ -1,0 +1,17 @@
+$deep-black: #252525;
+$faded-white: #fefbf6;
+
+$button-color: $faded-white;
+$button-hover-color: #c7c8cc;
+
+$login-button-color: #383838;
+
+$colors: (
+  primary: #f4dfc8,
+  secondary: #f4eae0,
+  tertiary: #faf6f0,
+);
+
+@function getColor($name) {
+  @return map-get($colors, $name);
+}

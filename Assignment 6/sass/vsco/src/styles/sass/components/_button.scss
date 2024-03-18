@@ -1,0 +1,24 @@
+@import "../abstract/mixins";
+@import "../base/typography";
+@import "../abstract/variables";
+
+$prefix: "btn";
+$primary-suffix: "-primary";
+$secondary-suffix: "-secondary";
+$primary-color: $deep-black;
+$secondary-color: $faded-white;
+
+.#{$prefix}.#{$primary-suffix} {
+  @include button-styles;
+}
+
+.#{$prefix}.#{$secondary-suffix} {
+  @include button-styles;
+  background-color: $deep-black;
+  color: $faded-white;
+  border: 1px solid grey;
+  &:hover {
+    background-color: $login-button-color;
+  }
+}
+

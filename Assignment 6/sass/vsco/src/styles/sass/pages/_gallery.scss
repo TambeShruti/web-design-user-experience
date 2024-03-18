@@ -1,0 +1,43 @@
+@import "../abstract/variables";
+.Gallery {
+  margin-left: 150px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: getColor(tertiary);
+
+  .profile-container {
+    height: 300px;
+    width: 100%;
+    padding-top: 30px;
+    .profile-picture {
+      img {
+        height: 150px;
+        width: 150px;
+        margin-bottom: 10px;
+      }
+    }
+    .profile-info {
+      p {
+        padding-top: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .gallery-container {
+    margin-left: 150px;
+    margin-right: 150px;
+    p {
+      font-size: large;
+      padding: 20px;
+      font-weight: bolder;
+    }
+    img {
+      padding: 0 5px 10px 5px;
+    }
+    button {
+      margin: 20px;
+    }
+  }
+}
