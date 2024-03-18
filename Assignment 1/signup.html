@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Signup - Fitness Tracker App</title>
+  </head>
+  <body>
+    <section class="header">
+      <nav>
+        <a href="home.html"><img src="images/logo.jpg" alt="logo" /></a>
+        <div class="nav-links">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="workouts.html">Workouts</a></li>
+            <li><a href="home.html">Community</a></li>
+            <li>
+              <a href="login.html"><button class="signup-btn">Login</button></a>
+            </li>
+            <li>
+              <a href="signup.html"
+                ><button class="signup-btn">Sign Up!</button></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="text-box">
+        <h1>Sign Up for Fitness Pulse</h1>
+      </div>
+    </section>
+    <br />
+    <h3>Create your account and start your fitness journey with us.</h3>
+
+    <section class="signup-container">
+      <form action="home.html" method="post" class="signup-form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="gender" value="male" required />
+              Male</label
+            >
+            <label
+              ><input type="radio" name="gender" value="female" required />
+              Female</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required />
+        </div>
+
+        <div class="form-group">
+          <label for="fitness-level">Fitness Level:</label>
+          <select id="fitness-level" name="fitness-level" required>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+        <input class="reset-btn" type="reset" value="Reset" />
+      </form>
+      <p>Already have an account? <a href="login.html">Login here</a>.</p>
+    </section>
+
+    <section class="footer">
+      <h4>Contact Us</h4>
+      <p>
+        For inquiries, contact us - Phone:
+        <a href="tel:+123456789">+1 (234) 567-89</a> Email:
+        <a href="mailto:info@fitnesstrackerapp.com"
+          >info@fitnesstrackerapp.com</a
+        >
+      </p>
+    </section>
+  </body>
+</html>
