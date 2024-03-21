@@ -2,17 +2,21 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const routes = require("./routes/userRoutes");
-
+const imageRoutes = require("./routes/imageRoutes");
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use("/images", express.static("uploads"));
+
+//Routes
 app.use("/user", routes);
+app.use("/user", imageRoutes);
 
 // MongoDB connection
 const mongoURI = process.env.MONGODB_URI;
 
-// mongoose
+// MongoDB Connection
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
