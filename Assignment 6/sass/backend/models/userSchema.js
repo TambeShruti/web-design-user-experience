@@ -1,7 +1,7 @@
 // models/User.js
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-
+const multer = require("multer");
 const userSchema = new mongoose.Schema({
   fullName: {
     type: String,
@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imagePath: { type: String },
 });
 
 // Hash password before saving to the database

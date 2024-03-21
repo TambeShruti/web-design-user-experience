@@ -1,34 +1,57 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate(); // Using useNavigate hook to handle navigation
+
+  const handleSignup = () => {
+    navigate("/SignupForm");
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="header">
       <div className="logo-container">
-        <a href="Explore">
+        <Link to="/Explore">
+          {" "}
+          {/* Use Link component for internal navigation */}
           <span className="simple-icons--vsco"></span>
           <p className="logo-p">VSCO</p>
-        </a>
+        </Link>
       </div>
 
       <nav className="navbar">
         <ul className="nav-item">
-          <Link to="/Explore">
-            <span class="arcticons--cinexplore"></span>
-            <li>Explore</li>
-          </Link>
-          <Link to="/Gallery">
-            <span class="healthicons--ui-user-profile-outline"></span>
-            <li>Profile</li>
-          </Link>
-          <Link to="/Studio">
-            <span class="fluent--broad-activity-feed-20-regular"></span>
-            <li>Studio</li>
-          </Link>
+          <li>
+            <Link to="/Explore">
+              <span className="arcticons--cinexplore"></span>
+              Explore
+            </Link>
+          </li>
+          <li>
+            <Link to="/Gallery">
+              <span className="healthicons--ui-user-profile-outline"></span>
+              Profile
+            </Link>
+          </li>
+          <li>
+            <Link to="/Studio">
+              <span className="fluent--broad-activity-feed-20-regular"></span>
+              Studio
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className="button-container-header">
-        <button className="btn -primary">Sign Up</button>
-        <button className="btn -secondary">Login</button>
+        <button className="btn -primary" onClick={handleSignup}>
+          Sign Up
+        </button>
+        <button className="btn -secondary" onClick={handleLogin}>
+          Login
+        </button>
       </div>
     </div>
   );
