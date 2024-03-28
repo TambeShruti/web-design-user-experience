@@ -102,4 +102,6 @@ const Header = () => {
     </AppBar>
   );
 };
+
+console.log(Header);
 export default Header;
