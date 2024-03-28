@@ -21,6 +21,12 @@ const Home = () => {
     marginTop: "20px",
   };
 
+  const imgStyle = {
+    width: "80%",
+    height: "500px",
+    marginTop: "20px",
+    marginBottom: "20px",
+  };
   return (
     <div className="home" style={containerStyle}>
       <SearchBar />
@@ -37,7 +43,17 @@ const Home = () => {
           <JobDescription />
         </div>
       </div>
+      <img
+        src="https://blog-consumer.glassdoor.com/site-us/wp-content/uploads/sites/2/di_prod_announcement.png"
+        alt="Background"
+        style={imgStyle}
+      />
       <CategoryComponent />
+      <img
+        src="https://www.glassdoor.com/employers/app/uploads/sites/2/2020/09/fostering-diversity-inclusion-not-just-an-hr-job-social.png"
+        alt="Background"
+        style={imgStyle}
+      />
       <Footer />
     </div>
   );
