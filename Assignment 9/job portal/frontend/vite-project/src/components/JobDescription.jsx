@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, Button } from "@mui/material";
 
 const JobDescription = () => {
   return (
-    <Card style={{ maxWidth: 600 }}>
+    <Card style={{ maxWidth: 600, height: "960px" }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Frontend Developer (Contract)
@@ -75,10 +75,10 @@ const JobDescription = () => {
           </p>
         </Typography>
         <Button
-          size="small"
-          color="primary"
-          href="employer-site-link"
+          variant="contained"
+          style={{ backgroundColor: "#4caf50", color: "white" }}
           target="_blank"
+          rel="noopener noreferrer"
         >
           Apply on employer site
         </Button>

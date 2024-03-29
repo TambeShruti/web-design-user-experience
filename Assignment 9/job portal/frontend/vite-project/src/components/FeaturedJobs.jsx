@@ -59,7 +59,11 @@ const FeaturedJobs = () => {
           <Card
             key={job.id}
             className="job-card"
-            style={{ marginTop: "10px", width: "500px" }}
+            style={{
+              marginTop: "10px",
+              width: "500px",
+              backgroundColor: "#e8f5e9",
+            }}
           >
             <CardContent>
               <Typography variant="h5" component="h2">
