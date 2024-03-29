@@ -6,6 +6,7 @@ import Home from "./pages/HomePage";
 import Login from "./components/Login";
 import AboutPage from "./pages/AboutPage";
 import JobListings from "./pages/JobListing";
+import FetchImages from "./components/DisplayImages";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/jobs" element={<JobListings />} />
+            <Route path="/company" element={<FetchImages />} />
           </Routes>
         </div>
       </Router>

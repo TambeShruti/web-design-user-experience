@@ -13,7 +13,7 @@ app.use("/images", express.static("uploads"));
 //cors
 app.use(
   cors({
-    origin: "http:localhost:5173",
+    origin: "http://localhost:5173",
   })
 );
 
