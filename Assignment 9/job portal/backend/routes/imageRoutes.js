@@ -36,5 +36,7 @@ router.post(
   upload.single("image"),
   imageController.uploadImage
 );
+//Fetch Image endpoint
+router.get("/images", imageController.fetchImage);
 
 module.exports = router;

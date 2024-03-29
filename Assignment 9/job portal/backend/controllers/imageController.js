@@ -1,4 +1,6 @@
 const User = require("../models/userSchema");
+const fs = require("fs");
+const path = require("path");
 
 // Upload image
 exports.uploadImage = async (req, res, next) => {
@@ -27,5 +29,22 @@ exports.uploadImage = async (req, res, next) => {
     console.log("Image uploaded successfully.");
   } catch (error) {
     next(error);
+  }
+};
+
+exports.fetchImage = async (req, res) => {
+  try {
+    const uploadsDirectory = path.join(__dirname, "../uploads");
+    const imageFiles = fs.readdirSync(uploadsDirectory);
+    const images = imageFiles.map((file) => {
+      return {
+        filename: file,
+        path: path.join(uploadsDirectory, file),
+      };
+    });
+    res.json(images);
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
