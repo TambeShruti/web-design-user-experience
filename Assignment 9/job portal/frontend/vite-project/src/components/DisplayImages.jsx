@@ -1,4 +1,4 @@
-// FetchImages.js
+// FetchImages.jsx
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -22,14 +22,15 @@ function FetchImages() {
 
   return (
     <div>
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image.path}
-          alt={image.filename}
-          style={{ width: "200px", height: "auto", margin: "5px" }}
-        />
-      ))}
+      <h2>Images</h2>
+      <div>
+        {images.map((image, index) => (
+          <div key={index}>
+            <img src={image.url} alt={`Image ${index}`} />
+            <br /> {/* Add a line break */}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
