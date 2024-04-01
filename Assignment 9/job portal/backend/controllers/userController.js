@@ -177,11 +177,9 @@ exports.createUser = async (req, res, next) => {
 
     // Check if type is valid
     if (type !== "employee" && type !== "admin") {
-      return res
-        .status(400)
-        .json({
-          message: "Invalid user type. Must be either 'employee' or 'admin'.",
-        });
+      return res.status(400).json({
+        message: "Invalid user type. Must be either 'employee' or 'admin'.",
+      });
     }
 
     // Create new user
@@ -238,7 +236,7 @@ exports.deleteUser = async (req, res, next) => {
 
 exports.getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find({}, "fullName email");
+    const users = await User.find({}, "fullName email type");
     res.json(users);
   } catch (error) {
     next(error);

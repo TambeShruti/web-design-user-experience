@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { Paper, Typography, TextField, Button, Grid } from "@mui/material";
+import {
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Grid,
+  Select,
+  MenuItem,
+} from "@mui/material";
 import { green } from "@mui/material/colors";
 import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [type, setType] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = async () => {
@@ -13,6 +22,7 @@ const Login = () => {
       const response = await axios.post("/api/user/login", {
         email,
         password,
+        type,
       });
       console.log(response);
       const token = response.data.token;
@@ -60,6 +70,17 @@ const Login = () => {
             variant="outlined"
             margin="normal"
           />
+          <Select
+            fullWidth
+            label="Type"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            variant="outlined"
+            margin="normal"
+          >
+            <MenuItem value="employee">Employee</MenuItem>
+            <MenuItem value="admin">Admin</MenuItem>
+          </Select>
           <Button
             fullWidth
             variant="contained"
