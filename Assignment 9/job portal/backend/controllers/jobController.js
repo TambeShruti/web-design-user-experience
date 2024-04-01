@@ -13,3 +13,11 @@ exports.createJob = async (req, res, next) => {
     next(error);
   }
 };
+exports.getAllJobs = async (req, res, next) => {
+  try {
+    const jobs = await Job.find();
+    res.json(jobs);
+  } catch (error) {
+    next(error);
+  }
+};

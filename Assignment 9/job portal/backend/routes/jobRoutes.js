@@ -5,5 +5,5 @@ const jobController = require("../controllers/jobController");
 
 // Route for creating a new job
 router.post("/create/job", jobController.createJob);
-
+router.get("/getAllJobs", jobController.getAllJobs);
 module.exports = router;

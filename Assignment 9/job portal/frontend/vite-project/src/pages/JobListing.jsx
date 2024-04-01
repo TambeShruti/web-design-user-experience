@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent, Typography, Button, Divider } from "@mui/material";
-import jobPosts from "../model/jobPosts";
+import axios from "axios";
 import Header from "../components/Header";
+
 const JobListings = () => {
   const imageStyles = {
     marginBottom: "20px",
   };
+  // State for jobs data
+  const [jobListings, setJobListings] = useState([]);
+
+  // Function to fetch job listings data from backend
+  const fetchJobListings = async () => {
+    try {
+      const response = await axios.get("/api/getAllJobs");
+      console.log(response);
+      setJobListings(response.data); // Assuming the response is an array of job objects
+    } catch (error) {
+      console.error("Error fetching job listings:", error);
+    }
+  };
+
+  // useEffect to fetch job listings data when component mounts
+  useEffect(() => {
+    fetchJobListings();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -15,9 +35,9 @@ const JobListings = () => {
           alt="Background"
           style={imageStyles}
         />
-        {jobPosts.map((job) => (
+        {jobListings.map((job) => (
           <Card
-            key={job.id}
+            key={job.id} // Assuming each job object has a unique id
             variant="outlined"
             style={{
               marginBottom: "20px",
@@ -27,16 +47,10 @@ const JobListings = () => {
           >
             <CardContent>
               <Typography variant="h5" component="h2">
-                {job.title}
-              </Typography>
-              <Typography color="textSecondary" gutterBottom>
-                {job.lastUpdated}
+                {job.jobTitle} at {job.companyName}
               </Typography>
               <Typography variant="body2" component="p">
                 Description: {job.description}
-              </Typography>
-              <Typography variant="body2" component="p">
-                Required Skills: {job.requiredSkills.join(", ")}
               </Typography>
               <Typography variant="body2" component="p">
                 Salary: {job.salary}

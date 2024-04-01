@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Logout from "../components/Logout";
+import AddJob from "../components/AddJob";
 import {
   Table,
   TableHead,
@@ -15,7 +16,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("/api/user/getAll");
+        const response = await axios.get("/user/getAll");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -40,6 +41,7 @@ const AdminPage = () => {
         alignItems: "center",
       }}
     >
+      <AddJob />
       <img
         src="https://blog-consumer.glassdoor.com/site-us/wp-content/uploads/sites/2/di_prod_announcement.png"
         alt="Background"
