@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import AboutPage from "./pages/AboutPage";
 import JobListings from "./pages/JobListing";
 import FetchImages from "./components/DisplayImages";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/jobs" element={<JobListings />} />
             <Route path="/company" element={<FetchImages />} />
+            <Route path="/dashboard" element={<LoginPage />} />
           </Routes>
         </div>
       </Router>

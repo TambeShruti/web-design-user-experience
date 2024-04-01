@@ -22,15 +22,14 @@ function FetchImages() {
 
   return (
     <div>
-      <h2>Images</h2>
-      <div>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img src={image.url} alt={`Image ${index}`} />
-            <br /> {/* Add a line break */}
-          </div>
-        ))}
-      </div>
+      {images.map((image, index) => (
+        <img
+          key={index}
+          src={image.path}
+          alt={image.filename}
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
+      ))}
     </div>
   );
 }
