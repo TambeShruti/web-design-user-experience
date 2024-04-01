@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Paper,
   Typography,
@@ -16,7 +17,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const handleLogin = async () => {
     try {
       const response = await axios.post("/api/user/login", {
@@ -30,7 +31,9 @@ const Login = () => {
       localStorage.setItem("token", token);
       // Redirect or handle successful login
       setError("");
+      navigate("/admin");
     } catch (error) {
+      console.error("Error:", error);
       setError(error.response.data.error);
     }
   };
@@ -59,7 +62,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             variant="outlined"
-            margin="normal"
+            margin="dense"
           />
           <TextField
             fullWidth

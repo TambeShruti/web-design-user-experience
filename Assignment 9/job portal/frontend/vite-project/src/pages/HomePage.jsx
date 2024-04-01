@@ -6,7 +6,7 @@ import FeaturedJobs from "../components/FeaturedJobs";
 import CategoryComponent from "../components/Category";
 import ImageWithTextOverlay from "../components/ImageContainer";
 import JobDescription from "../components/JobDescription";
-
+import Header from "../components/Header";
 const Home = () => {
   const containerStyle = {
     display: "flex",
@@ -29,6 +29,7 @@ const Home = () => {
   };
   return (
     <div className="home" style={containerStyle}>
+      <Header />
       <SearchBar />
       <h1>Glassdoor</h1>
       <ImageWithTextOverlay />

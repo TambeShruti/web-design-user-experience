@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, CardContent, Typography, Button, Divider } from "@mui/material";
 import jobPosts from "../model/jobPosts";
-
+import Header from "../components/Header";
 const JobListings = () => {
   const imageStyles = {
     marginBottom: "20px",
   };
   return (
     <div style={{ marginTop: "50px", marginLeft: "400px" }}>
+      <Header />
       <img
         src="https://about-us.glassdoor.com/site-us/wp-content/uploads/sites/2/2024/02/2024_about-us-hero-image_611x475-2.png"
         alt="Background"
