@@ -167,7 +167,7 @@ require("dotenv").config();
 
 exports.createUser = async (req, res, next) => {
   try {
-    const { fullName, email, password } = req.body;
+    const { fullName, email, password, type } = req.body;
 
     // Check if email already exists
     const existingUser = await User.findOne({ email });
@@ -175,8 +175,17 @@ exports.createUser = async (req, res, next) => {
       return res.status(400).json({ message: "Email already exists" });
     }
 
+    // Check if type is valid
+    if (type !== "employee" && type !== "admin") {
+      return res
+        .status(400)
+        .json({
+          message: "Invalid user type. Must be either 'employee' or 'admin'.",
+        });
+    }
+
     // Create new user
-    const newUser = new User({ fullName, email, password });
+    const newUser = new User({ fullName, email, password, type });
     await newUser.save();
 
     res.status(201).json(newUser);
