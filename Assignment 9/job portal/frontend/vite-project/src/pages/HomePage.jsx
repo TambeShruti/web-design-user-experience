@@ -7,6 +7,7 @@ import CategoryComponent from "../components/Category";
 import ImageWithTextOverlay from "../components/ImageContainer";
 import JobDescription from "../components/JobDescription";
 import Header from "../components/Header";
+
 const Home = () => {
   const containerStyle = {
     display: "flex",
