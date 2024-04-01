@@ -2,7 +2,6 @@ import React from "react";
 import { Paper, Typography, Grid, Button, Box } from "@mui/material";
 import { green } from "@mui/material/colors";
 import Header from "../components/Header";
-
 const AboutPage = () => {
   return (
     <div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Header from "./Header";
 function FetchImages() {
   const [images, setImages] = useState([]);
 
@@ -22,6 +22,7 @@ function FetchImages() {
 
   return (
     <div>
+      <Header />
       {images.map((image, index) => (
         <img
           key={index}

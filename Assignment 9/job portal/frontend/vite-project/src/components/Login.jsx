@@ -31,7 +31,11 @@ const Login = () => {
       localStorage.setItem("token", token);
       // Redirect or handle successful login
       setError("");
-      navigate("/admin");
+      if (type === "admin") {
+        navigate("/admin");
+      } else if (type === "employee") {
+        navigate("/");
+      }
     } catch (error) {
       console.error("Error:", error);
       setError(error.response.data.error);

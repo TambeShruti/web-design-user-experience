@@ -28,34 +28,36 @@ const Home = () => {
     marginBottom: "20px",
   };
   return (
-    <div className="home" style={containerStyle}>
+    <div>
       <Header />
-      <SearchBar />
-      <h1>Glassdoor</h1>
-      <ImageWithTextOverlay />
-      <div style={contentContainerStyle}>
-        <div style={{ width: "48%" }}>
-          {" "}
-          <FeaturedJobs />
-        </div>
+      <div className="home" style={containerStyle}>
+        <SearchBar />
+        <h1>Glassdoor</h1>
+        <ImageWithTextOverlay />
+        <div style={contentContainerStyle}>
+          <div style={{ width: "48%" }}>
+            {" "}
+            <FeaturedJobs />
+          </div>
 
-        <div style={{ width: "48%", marginTop: "70px" }}>
-          {" "}
-          <JobDescription />
+          <div style={{ width: "48%", marginTop: "70px" }}>
+            {" "}
+            <JobDescription />
+          </div>
         </div>
+        <img
+          src="https://blog-consumer.glassdoor.com/site-us/wp-content/uploads/sites/2/di_prod_announcement.png"
+          alt="Background"
+          style={imgStyle}
+        />
+        <CategoryComponent />
+        <img
+          src="https://www.glassdoor.com/employers/app/uploads/sites/2/2020/09/fostering-diversity-inclusion-not-just-an-hr-job-social.png"
+          alt="Background"
+          style={imgStyle}
+        />
+        <Footer />
       </div>
-      <img
-        src="https://blog-consumer.glassdoor.com/site-us/wp-content/uploads/sites/2/di_prod_announcement.png"
-        alt="Background"
-        style={imgStyle}
-      />
-      <CategoryComponent />
-      <img
-        src="https://www.glassdoor.com/employers/app/uploads/sites/2/2020/09/fostering-diversity-inclusion-not-just-an-hr-job-social.png"
-        alt="Background"
-        style={imgStyle}
-      />
-      <Footer />
     </div>
   );
 };
