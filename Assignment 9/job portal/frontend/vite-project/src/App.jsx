@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import AboutPage from "./pages/AboutPage";
 import JobListings from "./pages/JobListing";
 import FetchImages from "./components/DisplayImages";
+import AddJobPage from "./components/AddJobPage";
+import UserPage from "./components/UserPage";
 
 import AdminPage from "./pages/AdminPage";
 const App = () => {
@@ -20,6 +22,8 @@ const App = () => {
             <Route path="/jobs" element={<JobListings />} />
             <Route path="/company" element={<FetchImages />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/addjob" element={<AddJobPage />} />
+            <Route path="/users" element={<UserPage />} />
           </Routes>
         </div>
       </Router>

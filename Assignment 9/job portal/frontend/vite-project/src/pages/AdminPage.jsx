@@ -1,36 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Card, Button } from "react-bootstrap";
 import Logout from "../components/Logout";
-import AddJob from "../components/AddJob";
-import {
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get("/user/getAll");
-        setUsers(response.data);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
-  const imgStyle = {
-    width: "80%",
-    height: "500px",
-    marginTop: "20px",
-    marginBottom: "20px",
+  const handleAddJobClick = () => {
+    navigate("/addjob"); // Navigate to Add Job page
   };
+  const handleViewUsersClick = () => {
+    navigate("/users"); // Navigate to Users page
+  };
+
   return (
     <div
       style={{
@@ -41,62 +25,90 @@ const AdminPage = () => {
         alignItems: "center",
       }}
     >
-      <AddJob />
-      <img
-        src="https://blog-consumer.glassdoor.com/site-us/wp-content/uploads/sites/2/di_prod_announcement.png"
-        alt="Background"
-        style={imgStyle}
-      />
-
       <h1>Admin Page</h1>
       <h2>Users</h2>
-      <Table
-        style={{
-          width: "70%",
-          borderCollapse: "collapse",
-          alignContent: "center",
-          alignItems: "center",
-          margin: "20px",
-        }}
-      >
-        <TableHead>
-          <TableRow style={{ backgroundColor: "#f2f2f2" }}>
-            <TableCell
-              style={{ fontWeight: "bold", padding: "4px", fontSize: "14px" }}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Card
+          style={{
+            width: "300px",
+            margin: "20px",
+            border: "none",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            borderRadius: "10px",
+            padding: "20px",
+            textAlign: "center",
+          }}
+        >
+          <Card.Body>
+            <Card.Title
+              style={{
+                color: "#333",
+                fontSize: "1.5rem",
+                marginBottom: "20px",
+              }}
             >
-              Full Name
-            </TableCell>
-            <TableCell
-              style={{ fontWeight: "bold", padding: "4px", fontSize: "14px" }}
+              Users
+            </Card.Title>
+            <Card.Text
+              style={{
+                color: "#666",
+                fontSize: "1.2rem",
+                marginBottom: "20px",
+              }}
             >
-              Email
-            </TableCell>
-            <TableCell
-              style={{ fontWeight: "bold", padding: "4px", fontSize: "14px" }}
+              Registered users will appear here
+            </Card.Text>
+            <Button
+              variant="primary"
+              style={{ backgroundColor: "#0caa41", borderColor: "#0caa41" }}
+              onClick={handleViewUsersClick}
             >
-              Type
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {users.map((user) => (
-            <TableRow
-              key={user._id}
-              style={{ borderBottom: "1px solid #dddddd" }}
+              View
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card
+          style={{
+            width: "300px",
+            margin: "20px",
+            border: "none",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            borderRadius: "10px",
+            padding: "20px",
+            textAlign: "center",
+          }}
+        >
+          <Card.Body>
+            <Card.Title
+              style={{
+                color: "#333",
+                fontSize: "1.5rem",
+                marginBottom: "20px",
+              }}
             >
-              <TableCell style={{ padding: "4px", fontSize: "14px" }}>
-                {user.fullName}
-              </TableCell>
-              <TableCell style={{ padding: "4px", fontSize: "14px" }}>
-                {user.email}
-              </TableCell>
-              <TableCell style={{ padding: "4px", fontSize: "14px" }}>
-                {user.type}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+              Jobs
+            </Card.Title>
+            <Card.Text
+              style={{
+                color: "#666",
+                fontSize: "1.2rem",
+                marginBottom: "20px",
+              }}
+            >
+              Add jobs here
+            </Card.Text>
+            <Button
+              variant="primary"
+              style={{ backgroundColor: "#0caa41", borderColor: "#0caa41" }}
+              onClick={handleAddJobClick}
+            >
+              View
+            </Button>
+          </Card.Body>
+        </Card>
+      </div>
+
       <Logout />
     </div>
   );
