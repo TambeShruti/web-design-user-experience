@@ -8,6 +8,7 @@ import JobListings from "./pages/JobListing";
 import FetchImages from "./components/DisplayImages";
 import AddJobPage from "./components/AddJobPage";
 import UserPage from "./components/UserPage";
+import HomePage from "./pages/HomePage";
 
 import AdminPage from "./pages/AdminPage";
 const App = () => {
@@ -16,7 +17,8 @@ const App = () => {
       <Router>
         <div className="app">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/jobs" element={<JobListings />} />

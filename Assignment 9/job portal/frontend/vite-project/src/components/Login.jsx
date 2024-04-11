@@ -35,7 +35,8 @@ const Login = () => {
       if (type === "admin") {
         navigate("/admin");
       } else if (type === "employee") {
-        navigate("/");
+        navigate("/home");
+        alert("Login Successful!");
       }
     } catch (error) {
       console.error("Error:", error);
