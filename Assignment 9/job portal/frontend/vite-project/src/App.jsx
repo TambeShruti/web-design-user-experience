@@ -1,6 +1,7 @@
-// App.jsx
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "../src/Store";
 import Home from "./pages/HomePage";
 import Login from "./components/Login";
 import AboutPage from "./pages/AboutPage";
@@ -8,17 +9,17 @@ import JobListings from "./pages/JobListing";
 import FetchImages from "./components/DisplayImages";
 import AddJobPage from "./components/AddJobPage";
 import UserPage from "./components/UserPage";
-import HomePage from "./pages/HomePage";
-
 import AdminPage from "./pages/AdminPage";
+
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
+      {" "}
       <Router>
         <div className="app">
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/jobs" element={<JobListings />} />
@@ -29,7 +30,7 @@ const App = () => {
           </Routes>
         </div>
       </Router>
-    </>
+    </Provider>
   );
 };
 

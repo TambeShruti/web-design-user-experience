@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { loginSuccess } from "../actions/userActions";
 import { useNavigate } from "react-router-dom";
 import {
   Paper,
@@ -13,7 +15,7 @@ import { green } from "@mui/material/colors";
 import axios from "axios";
 import { Label } from "@mui/icons-material";
 
-const Login = () => {
+const Login = ({ loginSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
@@ -30,6 +32,7 @@ const Login = () => {
       const token = response.data.token;
       // Store the token in local storage or cookies
       localStorage.setItem("token", token);
+      loginSuccess({ email, type });
       // Redirect or handle successful login
       setError("");
       if (type === "admin") {
@@ -109,5 +112,8 @@ const Login = () => {
     </Grid>
   );
 };
-
-export default Login;
+// Map dispatch to props
+const mapDispatchToProps = (dispatch) => ({
+  loginSuccess: (user) => dispatch(loginSuccess(user)),
+});
+export default connect(null, mapDispatchToProps)(Login);
