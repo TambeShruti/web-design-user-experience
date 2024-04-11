@@ -131,7 +131,7 @@ const Header = () => {
             },
           }}
         >
-          <Tab label="Home" component={Link} to="/" />
+          <Tab label="Home" component={Link} to="/home" />
           <Tab label="About" component={Link} to="/about" />
 
           <Tab label="Jobs" component={Link} to="/jobs" />

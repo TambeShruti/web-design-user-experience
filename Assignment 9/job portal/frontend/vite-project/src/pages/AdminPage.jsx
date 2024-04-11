@@ -26,7 +26,7 @@ const AdminPage = () => {
       }}
     >
       <h1>Admin Page</h1>
-      <h2>Users</h2>
+      <h2>Dashboard</h2>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Card
           style={{
