@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import axios from "axios";
+import { viewUsers } from "../reducers/userReducer";
 import {
   Table,
   TableBody,
@@ -11,22 +13,23 @@ import {
   Typography,
 } from "@mui/material";
 
-const UsersPage = () => {
-  const [users, setUsers] = useState([]);
+const UsersPage = ({ users, viewUsers }) => {
+  // const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get("/api/user/getAll"); // Assuming your endpoint is /api/users
         console.log(response);
-        setUsers(response.data);
+        // setUsers(response.data);
+        viewUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     };
 
     fetchUsers();
-  }, []);
+  }, [viewUsers]);
 
   return (
     <div style={{ marginTop: "80px", textAlign: "center" }}>
@@ -69,5 +72,11 @@ const UsersPage = () => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  users: state.user.users,
+});
 
-export default UsersPage;
+const mapDispatchToProps = {
+  viewUsers,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
